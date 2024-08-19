@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vprofile-deployment
+  labels:
+    app: vprofile
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: vprofile
+  template:
+    metadata:
+      labels:
+        app: vprofile
+    spec:
+      containers:
+      - name: vprofile-container
+        image: mehdi1981/cicd:v1 # نام و تگ تصویر Docker شما
+        ports:
+        - containerPort: 8080
+
+
